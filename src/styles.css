@@ -142,3 +142,95 @@
     color: var(--color-foreground);
   }
 }
+
+/* ===== Brand: Site Pronto ===== */
+:root {
+  --radius: 0.875rem;
+  --background: oklch(0.16 0.02 265);
+  --foreground: oklch(0.98 0.005 250);
+  --card: oklch(0.21 0.025 265);
+  --card-foreground: oklch(0.98 0.005 250);
+  --popover: oklch(0.19 0.025 265);
+  --popover-foreground: oklch(0.98 0.005 250);
+  --primary: oklch(0.62 0.22 262);
+  --primary-foreground: oklch(0.99 0 0);
+  --secondary: oklch(0.26 0.03 265);
+  --secondary-foreground: oklch(0.98 0.005 250);
+  --muted: oklch(0.25 0.025 265);
+  --muted-foreground: oklch(0.72 0.025 260);
+  --accent: oklch(0.58 0.24 300);
+  --accent-foreground: oklch(0.99 0 0);
+  --border: oklch(1 0 0 / 12%);
+  --input: oklch(1 0 0 / 16%);
+  --ring: oklch(0.62 0.22 262);
+  --brand: oklch(0.62 0.22 262);
+  --brand-glow: oklch(0.7 0.2 268);
+  --violet: oklch(0.58 0.24 300);
+  --whatsapp: oklch(0.72 0.19 150);
+  --whatsapp-foreground: oklch(0.16 0.02 265);
+  --surface: oklch(0.19 0.022 265);
+  --gradient-brand: linear-gradient(120deg, var(--brand), var(--violet));
+  --shadow-glow: 0 20px 60px -20px color-mix(in oklab, var(--brand) 55%, transparent);
+  --shadow-card: 0 18px 50px -28px oklch(0 0 0 / 80%);
+}
+
+@theme inline {
+  --color-brand: var(--brand);
+  --color-brand-glow: var(--brand-glow);
+  --color-violet-accent: var(--violet);
+  --color-whatsapp: var(--whatsapp);
+  --color-whatsapp-foreground: var(--whatsapp-foreground);
+  --color-surface: var(--surface);
+  --font-display: "Sora", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+}
+
+@utility gradient-text {
+  background-image: var(--gradient-brand);
+  background-clip: text;
+  color: transparent;
+}
+
+@utility gradient-brand {
+  background-image: var(--gradient-brand);
+}
+
+@utility glow-brand {
+  box-shadow: var(--shadow-glow);
+}
+
+@utility card-elevated {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-card);
+}
+
+@utility ambient-glow {
+  position: relative;
+  isolation: isolate;
+  &::before {
+    content: "";
+    position: absolute;
+    inset: -20% -10% auto -10%;
+    height: 60%;
+    background: radial-gradient(60% 60% at 30% 0%, color-mix(in oklab, var(--brand) 28%, transparent), transparent 70%),
+      radial-gradient(50% 50% at 80% 10%, color-mix(in oklab, var(--violet) 22%, transparent), transparent 70%);
+    filter: blur(40px);
+    z-index: -1;
+    pointer-events: none;
+  }
+}
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font-sans); }
+  h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: -0.02em; }
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: none; }
+}
+@utility animate-rise {
+  animation: rise 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
