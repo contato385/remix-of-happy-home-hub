@@ -13,4 +13,5 @@ export const CONTACT = {
   email: "contato@seusite.com.br",
   brand: "SitePronto",
   price: "R$ 67,90",
+  checkoutUrl: "https://lastlink.com/p/C0E23B082/checkout-payment/",
 };
