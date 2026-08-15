@@ -361,7 +361,7 @@ function Landing() {
                 ))}
               </ul>
               <CTAButton size="xl" location="pricing" className="mt-8 w-full">
-                QUERO MEU SITE POR R$ 67,90/MÊS
+                INICIAR PROJETO NO WHATSAPP
               </CTAButton>
               <p className="mt-4 text-xs text-muted-foreground">
                 Domínio próprio não está incluso no valor mensal. Ele pode ser contratado

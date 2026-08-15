@@ -17,7 +17,7 @@ const sizes = {
 };
 
 export function CTAButton({
-  children = "QUERO MEU SITE AGORA",
+  children = "INICIAR PROJETO NO WHATSAPP",
   location,
   className,
   size = "lg",
