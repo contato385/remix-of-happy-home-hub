@@ -9,7 +9,7 @@ export const ANALYTICS = {
 };
 
 export const CONTACT = {
-  whatsapp: "5599999999999",
+  whatsapp: "5511921237043",
   email: "contato@seusite.com.br",
   brand: "SitePronto",
   price: "R$ 67,90",
