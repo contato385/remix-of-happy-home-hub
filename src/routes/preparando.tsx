@@ -103,11 +103,9 @@ function Preparando() {
                 type="submit"
                 className="inline-flex h-14 w-full items-center justify-center rounded-full gradient-brand font-semibold text-primary-foreground transition-transform duration-300 hover:-translate-y-0.5"
               >
-                ENVIAR INFORMAÇÕES →
+              ENVIAR INFORMAÇÕES →
               </button>
             </form>
-          </>
-        )}
       </main>
       <Footer />
     </>
