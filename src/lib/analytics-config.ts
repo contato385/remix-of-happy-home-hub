@@ -3,7 +3,7 @@
  * Enquanto estiverem vazios, nenhum script de terceiros é carregado.
  */
 export const ANALYTICS = {
-  metaPixelId: "",
+  metaPixelId: "2298825954379543",
   ga4Id: "",
   gtmId: "",
 };
