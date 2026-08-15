@@ -1,6 +1,6 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
-import { CheckCircle2, Loader2 } from "lucide-react";
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
+import { useEffect } from "react";
+import { Loader2 } from "lucide-react";
 import { Footer, Header } from "@/components/site/Layout";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -40,7 +40,7 @@ const campos = [
 ];
 
 function Preparando() {
-  const [enviado, setEnviado] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     trackPurchase();
@@ -50,35 +50,25 @@ function Preparando() {
     <>
       <Header />
       <main className="ambient-glow mx-auto max-w-3xl px-4 py-16">
-        {enviado ? (
-          <div className="card-elevated rounded-2xl p-10 text-center">
-            <CheckCircle2 className="mx-auto size-12 text-whatsapp" />
-            <h1 className="mt-4 text-2xl font-bold sm:text-3xl">Tudo certo!</h1>
-            <p className="mt-2 text-muted-foreground">
-              Agora nossa equipe já pode começar a preparar seu site.
-            </p>
-          </div>
-        ) : (
-          <>
-            <div className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-4 py-1.5 text-xs font-semibold tracking-wide">
-              <Loader2 className="size-3.5 animate-spin text-brand" /> SEU SITE ESTÁ SENDO PREPARADO
-            </div>
-            <h1 className="mt-4 text-3xl font-bold sm:text-4xl">
-              Envie as informações da sua empresa
-            </h1>
-            <p className="mt-2 text-muted-foreground">
-              O prazo de até 24 horas começa após o recebimento de todas as informações
-              necessárias.
-            </p>
+        <div className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-4 py-1.5 text-xs font-semibold tracking-wide">
+          <Loader2 className="size-3.5 animate-spin text-brand" /> SEU SITE ESTÁ SENDO PREPARADO
+        </div>
+        <h1 className="mt-4 text-3xl font-bold sm:text-4xl">
+          Envie as informações da sua empresa
+        </h1>
+        <p className="mt-2 text-muted-foreground">
+          O prazo de até 24 horas começa após o recebimento de todas as informações
+          necessárias.
+        </p>
 
-            <form
-              className="mt-8 space-y-5"
-              onSubmit={(e) => {
-                e.preventDefault();
-                trackLead("onboarding_form");
-                setEnviado(true);
-              }}
-            >
+        <form
+          className="mt-8 space-y-5"
+          onSubmit={(e) => {
+            e.preventDefault();
+            trackLead("onboarding_form");
+            navigate({ to: "/obrigado" });
+          }}
+        >
               <div className="grid gap-5 sm:grid-cols-2">
                 {campos.map((c) => (
                   <div key={c.id} className="space-y-2">
@@ -113,11 +103,9 @@ function Preparando() {
                 type="submit"
                 className="inline-flex h-14 w-full items-center justify-center rounded-full gradient-brand font-semibold text-primary-foreground transition-transform duration-300 hover:-translate-y-0.5"
               >
-                ENVIAR INFORMAÇÕES →
+              ENVIAR INFORMAÇÕES →
               </button>
             </form>
-          </>
-        )}
       </main>
       <Footer />
     </>
