@@ -8,7 +8,7 @@ export type AnalyticsEvent =
   | "PageView"
   | "ViewContent"
   | "ClickCTA"
-  | "BeginCheckout"
+  | "InitiateCheckout"
   | "Purchase"
   | "Lead";
 
