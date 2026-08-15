@@ -11,7 +11,7 @@ export const ANALYTICS = {
 export const CONTACT = {
   whatsapp: "5511921237043",
   email: "contato@seusite.com.br",
-  brand: "SitePronto",
+  brand: "NetzSite",
   price: "R$ 67,90",
   checkoutUrl: "https://lastlink.com/p/C0E23B082/checkout-payment/",
 };

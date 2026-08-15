@@ -4,10 +4,10 @@ import { Footer, Header } from "@/components/site/Layout";
 export const Route = createFileRoute("/termos")({
   head: () => ({
     meta: [
-      { title: "Termos de Uso | SitePronto" },
-      { name: "description", content: "Termos de uso do serviço de criação e hospedagem de sites SitePronto." },
-      { property: "og:title", content: "Termos de Uso | SitePronto" },
-      { property: "og:description", content: "Condições de contratação do serviço SitePronto." },
+      { title: "Termos de Uso | NetzSite" },
+      { name: "description", content: "Termos de uso do serviço de criação e hospedagem de sites NetzSite." },
+      { property: "og:title", content: "Termos de Uso | NetzSite" },
+      { property: "og:description", content: "Condições de contratação do serviço NetzSite." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/termos" },
       { name: "twitter:card", content: "summary_large_image" },

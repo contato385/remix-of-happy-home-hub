@@ -10,7 +10,7 @@ import { trackLead, trackPurchase } from "@/lib/analytics";
 export const Route = createFileRoute("/preparando")({
   head: () => ({
     meta: [
-      { title: "Seu site está sendo preparado | SitePronto" },
+      { title: "Seu site está sendo preparado | NetzSite" },
       {
         name: "description",
         content: "Envie as informações da sua empresa para começarmos a criação do seu site.",

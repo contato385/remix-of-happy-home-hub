@@ -4,10 +4,10 @@ import { Footer, Header } from "@/components/site/Layout";
 export const Route = createFileRoute("/privacidade")({
   head: () => ({
     meta: [
-      { title: "Política de Privacidade | SitePronto" },
-      { name: "description", content: "Como tratamos os dados dos clientes do serviço SitePronto." },
-      { property: "og:title", content: "Política de Privacidade | SitePronto" },
-      { property: "og:description", content: "Como tratamos os dados dos clientes do SitePronto." },
+      { title: "Política de Privacidade | NetzSite" },
+      { name: "description", content: "Como tratamos os dados dos clientes do serviço NetzSite." },
+      { property: "og:title", content: "Política de Privacidade | NetzSite" },
+      { property: "og:description", content: "Como tratamos os dados dos clientes da NetzSite." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/privacidade" },
       { name: "twitter:card", content: "summary_large_image" },
