@@ -27,8 +27,8 @@ import { CTAButton } from "@/components/site/CTAButton";
 import { Footer, Header, MobileCTABar } from "@/components/site/Layout";
 import { CONTACT } from "@/lib/analytics-config";
 import { trackPageView, trackViewContent } from "@/lib/analytics";
-import heroDevices from "@/assets/hero-devices.jpg";
-import segmentos from "@/assets/segmentos.jpg";
+import heroDevices from "@/assets/hero-devices.webp";
+import segmentos from "@/assets/segmentos.webp";
 
 const TITLE = "Site Profissional por R$ 67,90/mês | Seu Negócio Online";
 const DESCRIPTION =
@@ -311,8 +311,8 @@ function Landing() {
             <img
               src={segmentos}
               alt="Exemplos de sites profissionais para barbearia, salão, restaurante, oficina, clínica e imobiliária"
-              width={1408}
-              height={912}
+              width={1200}
+              height={777}
               loading="lazy"
               className="mt-10 w-full rounded-2xl border border-border/60"
             />
