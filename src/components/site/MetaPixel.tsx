@@ -39,8 +39,8 @@ fbq('track', 'PageView');`;
   // Dispara PageView a cada mudança de rota (inclui o primeiro mount).
   useEffect(() => {
     if (!pixelId) return;
-    trackPageView(location.pathname + location.search);
-  }, [pixelId, location.pathname, location.search]);
+    trackPageView(location.pathname);
+  }, [pixelId, location.pathname]);
 }
 
 /**
