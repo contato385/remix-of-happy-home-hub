@@ -43,7 +43,7 @@ export function Header() {
         </nav>
         <div className="flex items-center gap-2">
           <CTAButton size="md" location="header" className="hidden sm:inline-flex">
-            QUERO MEU SITE
+            INICIAR PROJETO
           </CTAButton>
           <a href="#precos" aria-label="Ver planos" className="md:hidden">
             <Menu className="size-6" />
@@ -58,7 +58,7 @@ export function MobileCTABar() {
   return (
     <div className="fixed inset-x-0 bottom-0 z-50 border-t border-border/60 bg-background/90 p-3 backdrop-blur-xl md:hidden">
       <CTAButton size="lg" location="mobile_sticky" className="w-full text-sm">
-        QUERO MEU SITE — {CONTACT.price}/MÊS
+        INICIAR NO WHATSAPP — {CONTACT.price}/MÊS
       </CTAButton>
     </div>
   );
