@@ -113,7 +113,7 @@ function RootShell({ children }: { children: ReactNode }) {
   return (
     <html lang="pt-BR">
       <head>
-        <MetaPixel />
+        <MetaPixelNoScript />
         <HeadContent />
       </head>
       <body>
