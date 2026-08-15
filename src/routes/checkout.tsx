@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { useEffect } from "react";
 import { Check, Lock, ShieldCheck } from "lucide-react";
 import { Footer, Header } from "@/components/site/Layout";
@@ -78,8 +78,8 @@ function Checkout() {
             <div>
               <h2 className="text-lg font-semibold">Pagamento</h2>
               <p className="mt-2 text-sm text-muted-foreground">
-                O gateway de pagamento (Stripe ou similar) será conectado aqui. Enquanto isso, você
-                pode seguir para o envio das informações do seu site.
+                Você será direcionado para o checkout seguro da Lastlink para finalizar a
+                contratação.
               </p>
               <div className="mt-5 space-y-2 text-sm text-muted-foreground">
                 <p className="flex items-center gap-2">
@@ -90,13 +90,15 @@ function Checkout() {
                 </p>
               </div>
             </div>
-            <Link
-              to="/preparando"
+            <a
+              href={CONTACT.checkoutUrl}
+              target="_blank"
+              rel="noreferrer"
               onClick={() => trackClickCTA("checkout_confirm")}
               className="mt-6 inline-flex h-14 items-center justify-center rounded-full gradient-brand font-semibold text-primary-foreground transition-transform duration-300 hover:-translate-y-0.5"
             >
-              CONTINUAR →
-            </Link>
+              IR PARA O PAGAMENTO →
+            </a>
           </div>
         </div>
       </main>
