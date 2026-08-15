@@ -43,6 +43,6 @@ export const trackPageView = (path: string) => track("PageView", { path });
 export const trackViewContent = (name: string) => track("ViewContent", { content_name: name });
 export const trackClickCTA = (location: string) => track("ClickCTA", { cta_location: location });
 export const trackBeginCheckout = (value = 67.9) =>
-  track("BeginCheckout", { value, currency: "BRL" });
+  track("InitiateCheckout", { value, currency: "BRL" });
 export const trackPurchase = (value = 67.9) => track("Purchase", { value, currency: "BRL" });
 export const trackLead = (source: string) => track("Lead", { source });
