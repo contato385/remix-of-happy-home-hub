@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect } from "react";
-import { Check, Lock, ShieldCheck } from "lucide-react";
+import { Check, MessageCircle, ShieldCheck } from "lucide-react";
 import { Footer, Header } from "@/components/site/Layout";
 import { CONTACT } from "@/lib/analytics-config";
 import { trackBeginCheckout, trackClickCTA } from "@/lib/analytics";
@@ -76,14 +76,14 @@ function Checkout() {
 
           <div className="card-elevated flex flex-col justify-between rounded-2xl p-6">
             <div>
-              <h2 className="text-lg font-semibold">Pagamento</h2>
+              <h2 className="text-lg font-semibold">WhatsApp</h2>
               <p className="mt-2 text-sm text-muted-foreground">
-                Você será direcionado para o checkout seguro da Lastlink para finalizar a
-                contratação.
+                Você será direcionado para o WhatsApp. Nossa equipe vai tirar suas dúvidas e
+                acompanhar sua contratação.
               </p>
               <div className="mt-5 space-y-2 text-sm text-muted-foreground">
                 <p className="flex items-center gap-2">
-                  <Lock className="size-4 text-brand" /> Ambiente de contratação seguro
+                  <MessageCircle className="size-4 text-brand" /> Atendimento direto no WhatsApp
                 </p>
                 <p className="flex items-center gap-2">
                   <ShieldCheck className="size-4 text-brand" /> Sem contrato de longo prazo
@@ -94,10 +94,10 @@ function Checkout() {
               href={CONTACT.checkoutUrl}
               target="_blank"
               rel="noreferrer"
-              onClick={() => trackClickCTA("checkout_confirm")}
+              onClick={() => trackClickCTA("checkout_whatsapp")}
               className="mt-6 inline-flex h-14 items-center justify-center rounded-full gradient-brand font-semibold text-primary-foreground transition-transform duration-300 hover:-translate-y-0.5"
             >
-              IR PARA O PAGAMENTO →
+              CHAMAR NO WHATSAPP →
             </a>
           </div>
         </div>
