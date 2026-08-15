@@ -1,37 +1,27 @@
-import { ClientOnly } from "@tanstack/react-router";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useLocation } from "@tanstack/react-router";
 import { ANALYTICS } from "@/lib/analytics-config";
 import { trackPageView } from "@/lib/analytics";
 
 /**
- * Componente de carregamento do Meta Pixel.
+ * Hook que carrega o Meta Pixel de forma segura no cliente.
  *
- * - Só renderiza no cliente (evita hidratação/SSR).
- * - Carrega o script oficial de forma assíncrona.
- * - Dispara PageView no carregamento inicial e a cada mudança de rota da SPA.
- * - Só ativa quando ANALYTICS.metaPixelId estiver preenchido.
+ * - Injeta o script oficial via DOM apenas uma vez.
+ * - Dispara PageView no carregamento inicial e a cada mudança de rota.
+ * - Não executa durante o SSR, evitando erros de hidratação.
  */
-export function MetaPixel() {
+export function useMetaPixel() {
   const pixelId = ANALYTICS.metaPixelId;
-  if (!pixelId) return null;
-
-  return (
-    <ClientOnly fallback={null}>
-      <PixelLoader pixelId={pixelId} />
-    </ClientOnly>
-  );
-}
-
-function PixelLoader({ pixelId }: { pixelId: string }) {
+  const injected = useRef(false);
   const location = useLocation();
 
-  // Dispara PageView em toda mudança de rota (inclui o primeiro mount).
   useEffect(() => {
-    trackPageView(location.pathname + location.search);
-  }, [location.pathname, location.search]);
+    if (!pixelId || injected.current) return;
 
-  const pixelScript = `!function(f,b,e,v,n,t,s)
+    const script = document.createElement("script");
+    script.type = "text/javascript";
+    script.async = true;
+    script.innerHTML = `!function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
 n.callMethod.apply(n,arguments):n.queue.push(arguments)};
 if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
@@ -42,21 +32,34 @@ s.parentNode.insertBefore(t,s)}(window, document,'script',
 fbq('init', '${pixelId}');
 fbq('track', 'PageView');`;
 
+    document.head.appendChild(script);
+    injected.current = true;
+  }, [pixelId]);
+
+  // Dispara PageView a cada mudança de rota (inclui o primeiro mount).
+  useEffect(() => {
+    if (!pixelId) return;
+    trackPageView(location.pathname + location.search);
+  }, [pixelId, location.pathname, location.search]);
+}
+
+/**
+ * Componente que renderiza apenas o fallback <noscript> do Meta Pixel.
+ * Deve ser colocado dentro de <head> para cobrir usuários sem JavaScript.
+ */
+export function MetaPixelNoScript() {
+  const pixelId = ANALYTICS.metaPixelId;
+  if (!pixelId) return null;
+
   return (
-    <>
-      <script
-        type="text/javascript"
-        dangerouslySetInnerHTML={{ __html: pixelScript }}
+    <noscript>
+      <img
+        height="1"
+        width="1"
+        style={{ display: "none" }}
+        src={`https://www.facebook.com/tr?id=${pixelId}&ev=PageView&noscript=1`}
+        alt=""
       />
-      <noscript>
-        <img
-          height="1"
-          width="1"
-          style={{ display: "none" }}
-          src={`https://www.facebook.com/tr?id=${pixelId}&ev=PageView&noscript=1`}
-          alt=""
-        />
-      </noscript>
-    </>
+    </noscript>
   );
 }
