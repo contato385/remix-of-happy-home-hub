@@ -1,18 +1,20 @@
 import { Link } from "@tanstack/react-router";
-import { Menu, MessageCircle, Sparkles } from "lucide-react";
+import { Menu, MessageCircle } from "lucide-react";
 import { CTAButton } from "./CTAButton";
 import { CONTACT } from "@/lib/analytics-config";
 import { trackClickCTA } from "@/lib/analytics";
+import logoAsset from "@/assets/netzsite-logo.png.asset.json";
 
 export function Logo({ className = "" }: { className?: string }) {
   return (
-    <Link to="/" className={`inline-flex items-center gap-2 ${className}`}>
-      <span className="grid size-8 place-items-center rounded-lg gradient-brand">
-        <Sparkles className="size-4 text-primary-foreground" />
-      </span>
-      <span className="font-display text-lg font-bold tracking-tight">
-        Site<span className="gradient-text">Pronto</span>
-      </span>
+    <Link to="/" className={`inline-flex items-center ${className}`}>
+      <img
+        src={logoAsset.url}
+        alt="NetzSite"
+        width={120}
+        height={40}
+        className="h-8 w-auto"
+      />
     </Link>
   );
 }
@@ -113,7 +115,7 @@ export function Footer() {
         </div>
       </div>
       <div className="mx-auto mt-10 max-w-6xl px-4 text-xs text-muted-foreground">
-        © {new Date().getFullYear()} SitePronto. Todos os direitos reservados.
+        © {new Date().getFullYear()} NetzSite. Todos os direitos reservados.
       </div>
     </footer>
   );
