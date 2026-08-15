@@ -1,7 +1,7 @@
-import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { trackBeginCheckout, trackClickCTA } from "@/lib/analytics";
+import { CONTACT } from "@/lib/analytics-config";
 
 type Props = {
   children?: React.ReactNode;
@@ -23,8 +23,10 @@ export function CTAButton({
   size = "lg",
 }: Props) {
   return (
-    <Link
-      to="/checkout"
+    <a
+      href={CONTACT.checkoutUrl}
+      target="_blank"
+      rel="noreferrer"
       onClick={() => {
         trackClickCTA(location);
         trackBeginCheckout();
@@ -40,6 +42,6 @@ export function CTAButton({
     >
       {children}
       <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
-    </Link>
+    </a>
   );
 }
