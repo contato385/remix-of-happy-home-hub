@@ -8,12 +8,12 @@ import { trackPurchase, trackClickCTA } from "@/lib/analytics";
 export const Route = createFileRoute("/obrigado")({
   head: () => ({
     meta: [
-      { title: "Obrigado pela contratação | SitePronto" },
+      { title: "Obrigado pela contratação | NetzSite" },
       {
         name: "description",
         content: "Sua contratação foi recebida. Entraremos em contato para iniciar a criação do seu site profissional.",
       },
-      { property: "og:title", content: "Obrigado pela contratação | SitePronto" },
+      { property: "og:title", content: "Obrigado pela contratação | NetzSite" },
       {
         property: "og:description",
         content: "Sua contratação foi recebida. Entraremos em contato em breve.",
